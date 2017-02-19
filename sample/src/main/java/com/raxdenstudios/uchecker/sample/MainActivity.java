@@ -52,13 +52,13 @@ public class MainActivity extends AppCompatActivity {
                 .create();
 
         ReactiveUCheckerProvider provider = new ReactiveUCheckerProvider();
-        Subscription subscription = provider.retrieveLastVersion(request)
+        Subscription subscription = provider.checkVersion(request)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Action1<String>() {
+                .subscribe(new Action1<Boolean>() {
                     @Override
-                    public void call(String currentVersion) {
-                        doSomethingWithRetrievedCurrentVersion(currentVersion);
+                    public void call(Boolean isLastVersion) {
+                        doSomething(isLastVersion);
                     }
                 });
 

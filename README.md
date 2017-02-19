@@ -9,9 +9,7 @@ Android UChecker is a library to provide a way to check if exists any newer vers
 
  ```java
 
-UCheckerRequest request = new UCheckerRequest
-        .Builder(this)
-        .create();
+UCheckerRequest request = new UCheckerRequest.Builder(this).create();
 
 ReactiveUCheckerProvider provider = new ReactiveUCheckerProvider();
 Subscription subscription = provider.retrieveLastVersion(request)
@@ -21,6 +19,34 @@ Subscription subscription = provider.retrieveLastVersion(request)
             @Override
             public void call(String currentVersion) {
                 doSomethingWithRetrievedCurrentVersion(currentVersion);
+            }
+        });
+
+```
+
+When you are done (for example in onStop()) remember to unsubscribe.
+
+
+ ```java
+
+ subscription.unsubscribe();
+
+ ```
+
+## Checking current version published in GooglePlay.
+
+ ```java
+
+UCheckerRequest request = new UCheckerRequest.Builder(this).create();
+
+ReactiveUCheckerProvider provider = new ReactiveUCheckerProvider();
+Subscription subscription = provider.checkVersion(request)
+        .subscribeOn(Schedulers.newThread())
+        .observeOn(AndroidSchedulers.mainThread())
+        .subscribe(new Action1<Boolean>() {
+            @Override
+            public void call(Boolean isLastVersion) {
+                doSomething(isLastVersion);
             }
         });
 
@@ -42,7 +68,7 @@ dependencies {
         compile 'org.jsoup:jsoup:1.10.19'
         compile 'io.reactivex:rxandroid:1.2.1'
         compile 'io.reactivex:rxjava:1.1.6'
-	    compile 'com.github.raxden:AndroidUChecker:1.0.4@aar'
+	    compile 'com.github.raxden:AndroidUChecker:1.0.5@aar'
 }
 ```
 
@@ -57,7 +83,7 @@ dependencies {
 <dependency>
 	    <groupId>com.github.raxden</groupId>
 	    <artifactId>AndroidUChecker</artifactId>
-	    <version>1.0.4</version>
+	    <version>1.0.5</version>
 </dependency>
 ```
 
@@ -67,7 +93,7 @@ dependencies {
 
 ### Documentation 
 
-For a **detailed documentation**, please have a look at the [**Wiki**](https://github.com/raxden/AndroidUChecker/wiki) or the [**Javadocs**](https://jitpack.io/com/github/raxden/AndroidUChecker/1.0.4/javadoc/).
+For a **detailed documentation**, please have a look at the [**Wiki**](https://github.com/raxden/AndroidUChecker/wiki) or the [**Javadocs**](https://jitpack.io/com/github/raxden/AndroidUChecker/1.0.5/javadoc/).
 
 ## LICENSE
 
