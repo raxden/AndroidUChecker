@@ -52,6 +52,18 @@ Subscription subscription = provider.checkVersion(request)
 
 ```
 
+## Modify packageName and versionName to compare with Google Play. Simply...
+
+ ```java
+
+UCheckerRequest request = new UCheckerRequest
+        .Builder(this)
+        .setPackageName("com.google.android.gm")
+        .setVersionName("1.0.0")
+        .create();
+
+```
+
 ## Usage
 
 In order to use the library, there are 3 options:

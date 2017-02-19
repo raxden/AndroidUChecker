@@ -52,6 +52,18 @@ Subscription subscription = provider.checkVersion(request)
 
 ```
 
+## Modify packageName and versionName to compare with Google Play. Simply...
+
+ ```java
+
+UCheckerRequest request = new UCheckerRequest
+        .Builder(this)
+        .setPackageName("com.google.android.gm")
+        .setVersionName("1.0.0")
+        .create();
+
+```
+
 ## Usage
 
 In order to use the library, there are 3 options:
@@ -68,7 +80,7 @@ dependencies {
         compile 'org.jsoup:jsoup:1.10.19'
         compile 'io.reactivex:rxandroid:1.2.1'
         compile 'io.reactivex:rxjava:1.1.6'
-	    compile 'com.github.raxden:AndroidUChecker:1.0.5@aar'
+	    compile 'com.github.raxden:AndroidUChecker:1.0.6@aar'
 }
 ```
 
@@ -83,7 +95,7 @@ dependencies {
 <dependency>
 	    <groupId>com.github.raxden</groupId>
 	    <artifactId>AndroidUChecker</artifactId>
-	    <version>1.0.5</version>
+	    <version>1.0.6</version>
 </dependency>
 ```
 
@@ -93,7 +105,7 @@ dependencies {
 
 ### Documentation 
 
-For a **detailed documentation**, please have a look at the [**Wiki**](https://github.com/raxden/AndroidUChecker/wiki) or the [**Javadocs**](https://jitpack.io/com/github/raxden/AndroidUChecker/1.0.5/javadoc/).
+For a **detailed documentation**, please have a look at the [**Wiki**](https://github.com/raxden/AndroidUChecker/wiki) or the [**Javadocs**](https://jitpack.io/com/github/raxden/AndroidUChecker/1.0.6/javadoc/).
 
 ## LICENSE
 
