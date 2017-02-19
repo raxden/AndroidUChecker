@@ -1,9 +1,9 @@
-Android Square
+Android UChecker
 ==========
 
-Framework for Android that lets you add useful features to your activities or fragments via interfaces. Works on Android 4.1 (API level 16) and upwards.
+Android UChecker is a library to provide a way to check if exists any newer version of your app on the GooglePlay. Works on Android 4.1 (API level 16) and upwards.
 
-[![Release](https://img.shields.io/github/release/raxden/AndroidSquare.svg?label=maven central)](https://jitpack.io/#raxden/AndroidSquare/) [![API](https://img.shields.io/badge/API-16%2B-green.svg?style=flat)](https://android-arsenal.com/api?level=16)
+[![Release](https://img.shields.io/github/release/raxden/AndroidUChecker.svg?label=maven central)](https://jitpack.io/#raxden/AndroidUChecker/) [![API](https://img.shields.io/badge/API-16%2B-green.svg?style=flat)](https://android-arsenal.com/api?level=16)
 
 ## Usage
 
@@ -18,7 +18,10 @@ repositories {
 }
 
 dependencies {
-	    compile 'com.github.raxden:AndroidSquare:1.0.1@aar'
+        compile 'org.jsoup:jsoup:1.10.19'
+        compile 'io.reactivex:rxandroid:1.2.1'
+        compile 'io.reactivex:rxjava:1.1.6'
+	    compile 'com.github.raxden:AndroidUChecker:1.0.2@aar'
 }
 ```
 
@@ -32,18 +35,18 @@ dependencies {
 
 <dependency>
 	    <groupId>com.github.raxden</groupId>
-	    <artifactId>AndroidSquare</artifactId>
-	    <version>1.0.1</version>
+	    <artifactId>AndroidUChecker</artifactId>
+	    <version>1.0.2</version>
 </dependency>
 ```
 
 **3. clone whole repository**
  - Open your **commandline-input** and navigate to your desired destination folder (where you want to put the library)
- - Use the command `git clone https://github.com/raxden/AndroidSquare.git` to download the full AndroidSquare repository to your computer (this includes the folder of the library project as well as the example project)
+ - Use the command `git clone https://github.com/raxden/AndroidUChecker.git` to download the full AndroidUChecker repository to your computer (this includes the folder of the library project as well as the example project)
 
 ### Documentation 
 
-For a **detailed documentation**, please have a look at the [**Wiki**](https://github.com/raxden/AndroidSquare/wiki) or the [**Javadocs**](https://jitpack.io/com/github/raxden/AndroidSquare/1.0.1/javadoc/).
+For a **detailed documentation**, please have a look at the [**Wiki**](https://github.com/raxden/AndroidUChecker/wiki) or the [**Javadocs**](https://jitpack.io/com/github/raxden/AndroidUChecker/1.0.2/javadoc/).
 
 ## LICENSE
 
