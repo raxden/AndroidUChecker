@@ -22,8 +22,8 @@ public class MainActivity extends AppCompatActivity {
 
         UCheckerRequest request = new UCheckerRequest
                 .Builder(this)
-                .setPackageName("your.package.name")
-                .setVersionName("your.Version.name3")
+                .setPackageName("com.google.android.gm")
+                .setVersionName("1.0.0")
                 .create();
 
         ReactiveUCheckerProvider provider = new ReactiveUCheckerProvider();
