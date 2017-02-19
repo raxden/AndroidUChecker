@@ -7,22 +7,22 @@ Android UChecker is a library to provide a way to check if exists any newer vers
 
 ## Getting current version published in GooglePlay.
 
- ```gradle
+ ```java
 
-        UCheckerRequest request = new UCheckerRequest
-                .Builder(this)
-                .create();
+UCheckerRequest request = new UCheckerRequest
+        .Builder(this)
+        .create();
 
-        ReactiveUCheckerProvider provider = new ReactiveUCheckerProvider();
-        provider.retrieveLastVersion(request)
-                .subscribeOn(Schedulers.newThread())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Action1<String>() {
-                    @Override
-                    public void call(String currentVersion) {
-                        doSomethingWithRetrievedCurrentVersion(currentVersion);
-                    }
-                });
+ReactiveUCheckerProvider provider = new ReactiveUCheckerProvider();
+Subscription subscription = provider.retrieveLastVersion(request)
+        .subscribeOn(Schedulers.newThread())
+        .observeOn(AndroidSchedulers.mainThread())
+        .subscribe(new Action1<String>() {
+            @Override
+            public void call(String currentVersion) {
+                doSomethingWithRetrievedCurrentVersion(currentVersion);
+            }
+        });
 
 ```
 

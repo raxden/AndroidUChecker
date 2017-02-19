@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.raxdenstudios.uchecker.ReactiveUCheckerProvider;
 import com.raxdenstudios.uchecker.UCheckerRequest;
 
+import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 import rx.schedulers.Schedulers;
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
                 .create();
 
         ReactiveUCheckerProvider provider = new ReactiveUCheckerProvider();
-        provider.retrieveLastVersion(request)
+        Subscription subscription = provider.retrieveLastVersion(request)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Action1<String>() {
