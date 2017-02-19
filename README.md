@@ -5,6 +5,27 @@ Android UChecker is a library to provide a way to check if exists any newer vers
 
 [![Release](https://img.shields.io/github/release/raxden/AndroidUChecker.svg?label=maven central)](https://jitpack.io/#raxden/AndroidUChecker/) [![API](https://img.shields.io/badge/API-16%2B-green.svg?style=flat)](https://android-arsenal.com/api?level=16)
 
+## Getting current version published in GooglePlay.
+
+ ```gradle
+
+        UCheckerRequest request = new UCheckerRequest
+                .Builder(this)
+                .create();
+
+        ReactiveUCheckerProvider provider = new ReactiveUCheckerProvider();
+        provider.retrieveLastVersion(request)
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Action1<String>() {
+                    @Override
+                    public void call(String currentVersion) {
+                        doSomethingWithRetrievedCurrentVersion(currentVersion);
+                    }
+                });
+
+```
+
 ## Usage
 
 In order to use the library, there are 3 options:
@@ -21,7 +42,7 @@ dependencies {
         compile 'org.jsoup:jsoup:1.10.19'
         compile 'io.reactivex:rxandroid:1.2.1'
         compile 'io.reactivex:rxjava:1.1.6'
-	    compile 'com.github.raxden:AndroidUChecker:1.0.2@aar'
+	    compile 'com.github.raxden:AndroidUChecker:1.0.3@aar'
 }
 ```
 
@@ -36,7 +57,7 @@ dependencies {
 <dependency>
 	    <groupId>com.github.raxden</groupId>
 	    <artifactId>AndroidUChecker</artifactId>
-	    <version>1.0.2</version>
+	    <version>1.0.3</version>
 </dependency>
 ```
 
@@ -46,7 +67,7 @@ dependencies {
 
 ### Documentation 
 
-For a **detailed documentation**, please have a look at the [**Wiki**](https://github.com/raxden/AndroidUChecker/wiki) or the [**Javadocs**](https://jitpack.io/com/github/raxden/AndroidUChecker/1.0.2/javadoc/).
+For a **detailed documentation**, please have a look at the [**Wiki**](https://github.com/raxden/AndroidUChecker/wiki) or the [**Javadocs**](https://jitpack.io/com/github/raxden/AndroidUChecker/1.0.3/javadoc/).
 
 ## LICENSE
 
